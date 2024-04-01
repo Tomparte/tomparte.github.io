@@ -1,30 +1,14 @@
-// Récupérer les dépôts publics de l'utilisateur
-fetch('https://api.github.com/users/tomparte/repos')
-  .then(response => response.json())
-  .then(repos => {
-    const repoContainer = document.querySelector('.repo-container');
-
-    repos.forEach(repo => {
-      const repoCard = document.createElement('div');
-      repoCard.classList.add('repo-card');
-
-      const repoName = document.createElement('h2');
-      repoName.textContent = repo.name;
-
-      const repoDescription = document.createElement('p');
-      repoDescription.textContent = repo.description || 'Pas de description disponible.';
-
-      const repoLink = document.createElement('a');
-      repoLink.href = repo.html_url;
-      repoLink.textContent = 'Voir le dépôt';
-
-      repoCard.appendChild(repoName);
-      repoCard.appendChild(repoDescription);
-      repoCard.appendChild(repoLink);
-
-      repoContainer.appendChild(repoCard);
-    });
-  })
-  .catch(error => {
-    console.error('Erreur lors de la récupération des dépôts :', error);
-  });
+document.addEventListener('DOMContentLoaded', function () {
+    fetch('https://api.github.com/users/tomparte/repos')
+    .then(response => response.json())
+    .then(data => {
+        const container = document.getElementById('repo-container');
+        data.forEach(repo => {
+            const div = document.createElement('div');
+            div.className = 'repo';
+            div.innerHTML = `<h2>${repo.name}</h2><p>${repo.description || ''}</p><a href="${repo.html_url}" target="_blank">View Repo</a>`;
+            container.appendChild(div);
+        });
+    })
+    .catch(error => console.log('Error:', error));
+});

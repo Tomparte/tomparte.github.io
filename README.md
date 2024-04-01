@@ -1,3 +1,3 @@
 # GitHub Pages
 
-[git.tomparte.com](http://git.tomparte.com)
+[git.tomparte.com](https://git.tomparte.com)

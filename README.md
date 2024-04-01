@@ -1,2 +1,2 @@
-# tomparte.github.io
-GitHub Pages
+# GitHub Pages
+git.tomparte.com

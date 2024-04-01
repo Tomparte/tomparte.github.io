@@ -1,35 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Repositories</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mes dépôts GitHub</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>My GitHub Repositories</h1>
-    <ul id="repo-list"></ul>
+  <header>
+    <h1>Mes dépôts GitHub</h1>
+    <p>Voici la liste de tous mes dépôts publics sur GitHub.</p>
+  </header>
 
-    <script>
-    // Remplacez 'votre_nom_d_utilisateur' par votre nom d'utilisateur GitHub
-    const username = 'tomparte';
+  <main>
+    <div class="repo-container">
+      <!-- Les dépôts seront générés ici dynamiquement -->
+    </div>
+  </main>
 
-    fetch(`https://api.github.com/users/${username}/repos`)
-        .then(response => response.json())
-        .then(data => {
-            const repoList = document.getElementById('repo-list');
+  <footer>
+    <p>&copy; 2024 - Mes dépôts GitHub</p>
+  </footer>
 
-            data.forEach(repo => {
-                const listItem = document.createElement('li');
-                const link = document.createElement('a');
-                link.href = repo.html_url;
-                link.textContent = repo.name;
-                listItem.appendChild(link);
-                repoList.appendChild(listItem);
-            });
-        })
-        .catch(error => {
-            console.error('Erreur lors de la récupération des dépôts GitHub :', error);
-        });
-</script>
-</body> 
+  <script src="script.js"></script>
+</body>
 </html>

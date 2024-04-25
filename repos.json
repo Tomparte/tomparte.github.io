@@ -1,0 +1,6 @@
+{% raw %}
+{
+  "username": "your-github-username",
+  "repositories": "https://api.github.com/users/tomparte/repos"
+}
+{% endraw %}

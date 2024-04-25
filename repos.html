@@ -1,0 +1,28 @@
+{% raw %}
+---
+layout: default
+title: Repositories
+---
+
+<ul id="repo-list"></ul>
+
+<script>
+  fetch('{{ "/repos.json" | relative_url }}')
+    .then(response => response.json())
+    .then(data => {
+      fetch(data.repositories)
+        .then(response => response.json())
+        .then(repos => {
+          const repoList = document.getElementById('repo-list');
+          repos.forEach(repo => {
+            const listItem = document.createElement('li');
+            const link = document.createElement('a');
+            link.textContent = repo.name;
+            link.href = repo.html_url;
+            listItem.appendChild(link);
+            repoList.appendChild(listItem);
+          });
+        });
+    });
+</script>
+{% endraw %}
